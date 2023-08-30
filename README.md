@@ -45,8 +45,9 @@ sudo apt-mark hold kubelet kubeadm kubectl
 # Adim 2
 ``` bash
 sudo su -
-curl https://raw.githubusercontent.com/denizturkmen/K8S-Full-Content-Notes/main/K8s%20Set-up/Kubeadm/1-%20Kubernetes%20Install/swap-disable.sh | bash -
+curl https://github.com/mustafaguven/kubernetes_installation/blob/main/swap-disable.sh | bash -
 ```
+
 
 # Adim 2 (Detay)
 ``` bash
