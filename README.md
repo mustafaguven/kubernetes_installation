@@ -8,14 +8,13 @@ sudo apt -y full-upgrade
 sudo reboot
 ```
 
-For Quicksight Setup
+# Adim 1
 ```
 sudo su -
-curl https://raw.githubusercontent.com/denizturkmen/K8S-Full-Content-Notes/main/K8s%20Set-up/Kubeadm/1-%20Kubernetes%20Install/k8s.sh | bash -
-
+curl https://raw.githubusercontent.com/mustafaguven/kubernetes_installation/main/k8s.sh | bash -
 ```
 
-Install **kubelet, kubeadm and kubectl**
+## Adim 1 Detay
 ``` bash
 sudo apt install curl apt-transport-https -y
 curl -fsSL  https://packages.cloud.google.com/apt/doc/apt-key.gpg|sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/k8s.gpg
