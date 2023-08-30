@@ -45,7 +45,7 @@ sudo apt-mark hold kubelet kubeadm kubectl
 # Adim 2
 ``` bash
 sudo su -
-curl https://github.com/mustafaguven/kubernetes_installation/blob/main/swap-disable.sh | bash -
+curl https://raw.githubusercontent.com/mustafaguven/kubernetes_installation/main/swap-disable.sh | bash -
 ```
 
 
