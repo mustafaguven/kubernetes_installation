@@ -14,7 +14,7 @@ sudo su -
 curl https://raw.githubusercontent.com/mustafaguven/kubernetes_installation/main/k8s.sh | bash -
 ```
 
-## Adim 1 Detay
+## Adim 1 (Detay)
 ``` bash
 sudo apt install curl apt-transport-https -y
 curl -fsSL  https://packages.cloud.google.com/apt/doc/apt-key.gpg|sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/k8s.gpg
@@ -42,7 +42,13 @@ sudo apt-mark hold kubelet kubeadm kubectl
 
 ```
 
-Disable **Swap** Space
+# Adim 2
+``` bash
+sudo su -
+curl https://raw.githubusercontent.com/denizturkmen/K8S-Full-Content-Notes/main/K8s%20Set-up/Kubeadm/1-%20Kubernetes%20Install/swap-disable.sh | bash -
+```
+
+# Adim 2 (Detay)
 ``` bash
 ## Temporary
 sudo swapoff -a 
@@ -54,16 +60,7 @@ sudo vim /etc/fstab
 ## Confirm setting is correct
 sudo mount -a
 free -h
-
 ```
-
-For Quicksight Swap-Disable
-``` bash
-sudo su -
-curl https://raw.githubusercontent.com/denizturkmen/K8S-Full-Content-Notes/main/K8s%20Set-up/Kubeadm/1-%20Kubernetes%20Install/swap-disable.sh | bash -
-
-```
-
 
 
 Enable **kernel modules** and **configure sysctl**
