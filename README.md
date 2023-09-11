@@ -63,7 +63,7 @@ sudo mount -a
 free -h
 ```
 
-
+# Adim 3
 Enable **kernel modules** and **configure sysctl**
 ``` bash
 # Enable kernel modules
@@ -111,7 +111,8 @@ sudo apt install -y curl gnupg2 software-properties-common apt-transport-https c
 
 # Add Docker repo
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+#sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo add-apt-repository focal stable"
 
 # Install containerd
 sudo apt update
@@ -149,18 +150,9 @@ sudo kubeadm config images pull
 ## Containerd
 sudo kubeadm config images pull --cri-socket /run/containerd/containerd.sock
 
-# IP addresses and dns name add into /etc/hosts
-sudo vim /etc/hosts
-    IP_Addreses         Dns_Name  
-
-    192.168.1.7         kubernetes.dev.env.test
-    192.168.1.7         k8s-master-1    
-
 # Create cluster
-sudo kubeadm init --control-plane-endpoint="kubernetes.dev.env.test:6443" --apiserver-advertise-address=192.168.1.7 --node-name k8s-master-1 --pod-network-cidr=192.168.0.0/24
-or
-sudo kubeadm init --pod-network-cidr=192.168.0.0/24 --upload-certs --control-plane-endpoint="kubernetes.dev.env.test" --node-name k8s-master-1 --cri-socket /run/containerd/containerd.sock  -> not try
-
+sudo kubeadm init --control-plane-endpoint="192.168.0.250:6443" --upload-certs --apiserver-advertise-address=192.168.0.200 --pod-network-cidr=10.0.0.3/16
+#sudo kubeadm init --control-plane-endpoint="kubernetes.dev.env.test:6443" --apiserver-advertise-address=192.168.1.7 --node-name k8s-master-1 --pod-network-cidr=192.168.0.0/24
 
 # To start using your cluster, you need to run the following as a regular user:
 
@@ -169,25 +161,6 @@ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 ```
-
-Master or worker node add
-IP addresses and dns name add into /etc/hosts
-``` bash
-sudo vim /etc/hosts
-    IP_Addreses         Dns_Name  
-
-    192.168.1.7         kubernetes.dev.env.test
-    192.168.1.8         k8s-worker-1    
-
-# The following run the  command
-sudo kubeadm join kubernetes.dev.env.test:6443 --token 36yras.6m0w4ruxjfx32b5x \
-> --discovery-token-ca-cert-hash sha256:6ac19a8321fa789a8571c748eb70b9c4014dba46f96c5d379a8cc4cd853886a0 \
-> --node-name k8s-worker-1 
-
-```
-
-
-
 
 
 # Referance
