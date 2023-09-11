@@ -85,9 +85,7 @@ backend kubernetes-backend
   mode tcp
   option ssl-hello-chk
   balance roundrobin
-    server kmaster1 172.16.16.101:6443 check fall 3 rise 2
-    server kmaster2 172.16.16.102:6443 check fall 3 rise 2
-    server kmaster3 172.16.16.103:6443 check fall 3 rise 2
+    server km-1 192.168.0.61:6443 check fall 3 rise 2
 
 EOF
 ```
