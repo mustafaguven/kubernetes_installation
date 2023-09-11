@@ -170,3 +170,12 @@ https://kubernetes.io/docs/setup/production-environment/container-runtimes/#cont
 
 
 ```
+
+
+https://raw.githubusercontent.com/projectcalico/calico/v3.25.2/manifests/calico.yaml 
+
+https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml  
+
+
+
+
