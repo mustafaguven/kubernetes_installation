@@ -1,6 +1,8 @@
 
 keepalived'nin sanal olarak atayacagi ip => 192.168.0.70
 
+interface ens18 senin makinendeki ethernet neyse o (ip a s dediginde gordugun ethernet karti)
+
 
 paketleri yukle
 ``` bash
@@ -46,7 +48,7 @@ vrrp_script check_apiserver {
 
 vrrp_instance VI_1 {
     state BACKUP
-    interface eth1
+    interface ens18
     virtual_router_id 1
     priority 100
     advert_int 5
